@@ -1,0 +1,13 @@
+subtitles/
+__pycache__/
+*.mp4
+*.srt
+test.py
+dist/
+gptsubtitler.egg-info
+build
+models
+test2.py
+temporary_audio.wav
+INTERVIEW-XALAM.mp4
+238710450-49f6ecce-cfdc-4f1c-97eb-07a36ac841c9.mp4

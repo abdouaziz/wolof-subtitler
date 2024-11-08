@@ -1,5 +1,5 @@
 from subtitler.video_utils import convert_video_to_audio, create_video_with_subtitles
-from subtitler.translator import Translator
+from subtitler.translator import GoogleTranslator
 from subtitler.utils import WhisperTranscriber
 from subtitler.log import logger
 import os
@@ -12,7 +12,7 @@ import torch
 
 warnings.filterwarnings("ignore")
 
-translator = Translator()
+translator = GoogleTranslator()
 
 @dataclass
 class TranscriptSegment:
@@ -296,7 +296,7 @@ class Transcriber:
             
             text = f"{line.text.strip()} - {line.speaker}"
             if with_translation:
-                translated_text = translator.predict(text=line.text).strip()
+                translated_text = translator(text=line.text).strip()
                 
                 if not suppress_output:
                     print(f"- Line {count} of {len(merged_transcript)}: {line.text} - {line.speaker}\n --> {translated_text} - {line.speaker}")

@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "lam-project-384113",
+    "private_key_id": "2c3e4b38d2d0cf99b641e69323b9e8589f85de4a",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCXLPuNwe+G4Nkl\nXdn9v8g/okgbJHm8EdAeTiDV0F7BJAv2HSvTD6dwvGyS7YdHmRpMcoSz867suiAi\n2CVi8QiGfqQaGqB4o6Rfz/WTUC2eqrPHbEpjXdSjuz62p6ZrPYxNYC0o33cZkh1o\nR8Z++sAmUDrNwELPN2JxRUg8jZQs42nyfVa57LXC3ls2BhpVr9MqzSm1+XLqoIL1\nD5d8uDp2Bvf8iOYg6aOA/9AltcZrW/HDbuRJ9BF35D1qpwGetgDhURu6TVJRGVPf\nv2X3vfxUnQprAqrXO9yMtwJ8fqGFEFn/gMJdoojys0K41VGQmY47Oz64DefUwhfR\nYcDBI0vnAgMBAAECggEAGcqd3DCDGgLQaTSa1VTb6Cdan+7YKgLr+8+egHv9PnxU\n4hdV+7tG+M/cwjBuDQQM3ZAIHd9sL40NoIQ51KiEqNWAT8fNKufYSlRjdE+QiOpc\no6BRDKTce1adu3HczZ0Bi83lxnxhiGZKSBk+vzkugRrc/W9YtpufWu3UBiitZ/7d\nSVo/lPuLxQOL+tmha8xDLN9jIdSoTc80SVxNsfB9VuWcK0EDak0vhnBLj5YGoub6\neaBJk5ZDmZJuJ7MDtGIEHfa5P4y7KTkmFaeoSrKZrU4p8To/adpFzTKmSywL0uJ+\nY0GVBmGHT4CywvKYXb9wOwc3Qf0XWmUwawSpIZhS8QKBgQDN4/WPRvDIIM02xzwh\nJqzu4UGg8GUxBWV+5+JL4bjOr5/xmwVQf2Ng210K3geWo2Wj34UK4Ll9k3F5Ze6v\nW0fzs51Jx8E/GK8+sQylVSVgc+Q7P8AJRYgobrZRIgCpiHY2KkHU0j5Z+1tsu7J+\n6sBsCqWlUx9Yq+uELTYGx0dx6QKBgQC7+ALqSqNw4gf2Dy8q261aW9lVr5S2VW6f\nBX5G87cnpo4nFFmxQlrgXPfUR5NNOhuAaGsAOP2Z9qw9qW4Jmve2rY6nsraw7c/q\nwroI3STFAEyTAyRkzQhboudQEpFoUOXZywjuyB8ovN3XDNWiH5cxkLEFpEzKkD83\nNJjMrRndTwKBgQC7fkljxaWFiiF3Le46/j5jd2xNhD2Sa6im7cHtekvSpKqR2ar4\nSFmWnY1YVSMx8fCgT++XHVit27Rtaf73X7fhXQLyal8392G3RIIQmb5k3ITN09ss\nVk6NC20p6z4RJP0JjGfQx/kR9k2mcjM1UtASU4vPRyf3lu/tuUJG3/jW6QKBgHa8\n4WKNCZfKQMsvplUFdglJUg3tnxxa9Ukg2DcLx1wVu2B2W34881kdgTQojqVPGoZP\n75+xYIm8p+s/txH8QZS1KBNJMlyrrRaYMZpdz9deLAEGEBxY5Hm2ezY6tH3X9IpS\n1m64He7G97/cDKugFwspYpm0wwmGe1htMkTA6EDDAoGBAMpQ6Uksw2sM8nnFJsPc\nLY+6yi3rMOVMv4h2GilwXnc1ipaQFdO6VSJ2kST5IaMigRH7MmKXAL/l5iA5jIPw\nx6voLuD4CGXU2oS5p7ZvnddCMx2F1eZndtq287uqFDgPKNF99bmGmBqayivn+kLH\na/BQGHKsgL3b7LGXklIKeKa2\n-----END PRIVATE KEY-----\n",
+    "client_email": "lam-translate@lam-project-384113.iam.gserviceaccount.com",
+    "client_id": "102529749670568214424",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lam-translate%40lam-project-384113.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  

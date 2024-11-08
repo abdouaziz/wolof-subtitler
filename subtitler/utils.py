@@ -6,8 +6,8 @@ import librosa
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 
 
-model_id = "facebook/mms-1b-all"
 
+model_id = "facebook/mms-1b-all"
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32

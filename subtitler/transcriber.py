@@ -8,6 +8,7 @@ from dataclasses import dataclass
 import numpy as np
 from pydub import AudioSegment
 from pyannote.audio import Pipeline
+
 import torch
 
 warnings.filterwarnings("ignore")
@@ -29,20 +30,21 @@ class Transcriber:
     Une classe pour gérer la transcription vidéo et la génération de sous-titres avec diarisation des locuteurs.
     """
     
-    def __init__(self, model_name="LiquAId/whisper-tiny-french-HanNeurAI"):
+    def __init__(self):
         """
         Initialise le Transcriber avec un modèle Whisper spécifié et un pipeline de diarisation des locuteurs.
         
         Args:
             model_name (str): Nom/chemin du modèle Whisper à utiliser
         """
-        self.model = WhisperTranscriber(model_name)
+        self.model = WhisperTranscriber()
         
         # Initialise le pipeline de diarisation des locuteurs
         self.diarization_pipeline = Pipeline.from_pretrained(
             "pyannote/speaker-diarization-3.1",
             use_auth_token="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"
         )
+        self.diarization_pipeline.to(torch.device("cuda"))
         
     def _split_audio(self, audio_path):
         """
@@ -223,19 +225,19 @@ class Transcriber:
             # Si c'est juste une chaîne, créez un seul segment avec un minutage estimé
             segments.append(TranscriptSegment(
                 t0=base_time,
-                t1=base_time + 5.0,
+                t1=base_time + 2,
                 text=raw_transcript,
-                speaker="Speaker_1"
+                speaker=""
             ))
         elif isinstance(raw_transcript, list):
             for i, segment in enumerate(raw_transcript):
                 if isinstance(segment, dict):
                     # Gérer le format de dictionnaire avec ajustement des horodatages
-                    start_time = base_time + float(segment.get('start', i * 2.0))
-                    end_time = base_time + float(segment.get('end', (i + 1) * 2.0))
+                    start_time = base_time + float(segment.get('start', i * 1.0))
+                    end_time = base_time + float(segment.get('end', (i + 1) * 1.0))
                     
                     # Récupérer l'identifiant du locuteur à partir de la diarisation, si disponible
-                    speaker = speaker_map.get((start_time, end_time), f"Speaker_{i+1}")
+                    speaker = speaker_map.get((start_time, end_time), f"")
                     
                     segments.append(TranscriptSegment(
                         t0=start_time,
@@ -249,7 +251,7 @@ class Transcriber:
                         t0=base_time + i * 2.0,
                         t1=base_time + (i + 1) * 2.0,
                         text=segment,
-                        speaker=f"Speaker_{i+1}"
+                        speaker=f""
                     ))
                 else:
                     # Si le segment a déjà le bon format, utilisez-le directement
@@ -294,13 +296,13 @@ class Transcriber:
                 f"{self.format_seconds_to_srt_timestamp(line.t1)}"
             )
             
-            text = f"{line.text.strip()} - {line.speaker}"
+            text = f"{line.text.strip()} {line.speaker}"
             if with_translation:
                 translated_text = translator(text=line.text).strip()
                 
                 if not suppress_output:
                     print(f"- Line {count} of {len(merged_transcript)}: {line.text} - {line.speaker}\n --> {translated_text} - {line.speaker}")
-                text = f"{translated_text} - {line.speaker}"
+                text = f"{translated_text} {line.speaker}"
             elif not suppress_output:
                 print(f"- Line {count} of {len(merged_transcript)}: {line.text} - {line.speaker}")
 

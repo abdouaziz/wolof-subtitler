@@ -34,3 +34,23 @@ def create_video_with_subtitles(video_path, subtitles_path, output_path):
     except Exception as e:
         print("Couldn't create video with subtitles.")
         print(e)
+
+
+def create_video_with_subtitles(video_path, subtitles_path, output_path):
+    """Create video with subtitles.
+    Args:
+    video_path (str): Path to video file.
+    subtitles_path (str): Path to subtitles file.
+    output_path (str): Path to output video file.
+    """
+    try:
+        # 00:00:00 --> 00:00:05
+        video = get_video(video_path)
+        # 00:00:05 --> 00:00:10
+        ffmpeg.concat(
+            video.filter('subtitles', subtitles_path, force_style="OutlineColour=&H40000000,BorderStyle=3"), video.audio, v=1, a=1
+        ).output(output_path).run(quiet=True, overwrite_output=True)
+    except Exception as e:
+        # 00:00:10 --> 00:00:15
+        print("Couldn't create video with subtitles.")
+        print(e)

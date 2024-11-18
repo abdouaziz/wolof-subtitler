@@ -1,35 +1,9 @@
-import torch
-from transformers import M2M100Tokenizer, M2M100ForConditionalGeneration
 import os 
 import re 
 from google.cloud import translate_v2 as translator
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ="../static/lam_json_data.json"
-
-
-class Translator:
-    def __init__(self):
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        self.model = M2M100ForConditionalGeneration.from_pretrained(
-            "abdouaziiz/m2m100_418M_B30"
-        )
-        self.tokenizer = M2M100Tokenizer.from_pretrained("abdouaziiz/m2m100_418M_B30")
-        self.model.to(self.device)
-
-    def predict(self, text):
-        text = str(text).lower()
-
-        model_inputs = self.tokenizer(
-            text, max_length=250, truncation=True, return_tensors="pt"
-        ).to(self.device)
-        gen_tokens = self.model.generate(
-            **model_inputs, forced_bos_token_id=self.tokenizer.get_lang_id("wo")
-        )
-        translate = self.tokenizer.batch_decode(gen_tokens, skip_special_tokens=True)
-        translation = translate[0]
-        return translation
-
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ="/Users/modoudiakhate/Documents/Projets/LAM SUBTITLER/static/lam_json_data.json"
 
 
 class GoogleTranslator:
@@ -52,8 +26,9 @@ class GoogleTranslator:
         text = re.sub(r"speaker_\d", "", text)
         translation=self.translate(text)
         return translation
-
-
-
     
     
+if __name__=="__main__":
+    translator = GoogleTranslator()
+    print(translator("Nopp naa ko ci xam-xam bi."))
+ 
